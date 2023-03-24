@@ -21,13 +21,18 @@ const BodyComponent = () => {
     }, []);
 
     async function getRestaurants() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        // console.log(json);
-        const restaurants = json?.data?.cards[2]?.data?.data?.cards;
-        // console.log(restaurants);
-        setFilteredRestaurants(restaurants);
-        setAllRestaurants(restaurants);
+        try {
+            const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
+            const json = await data.json();
+            // console.log(json);
+            const restaurants = json?.data?.cards[2]?.data?.data?.cards;
+            // console.log(restaurants);
+            setFilteredRestaurants(restaurants);
+            setAllRestaurants(restaurants);
+        } catch (err) {
+            console.log(err);
+        }
+        
         
     }
 
@@ -60,11 +65,11 @@ const BodyComponent = () => {
             </div>
         
             <div className="restaurant-list">
-                    {filteredRestaurants?.length === 0 ? (<h1>No Matching Restaurants Found</h1>) :
-                        (filteredRestaurants?.map((restaurant) => (
-                            <Link to={"/restaurant/"+restaurant.data.id} key={restaurant.data.id}>
-                                <RestaurantCard {...restaurant.data} />
-                            </Link>
+                {filteredRestaurants?.length === 0 ? (<h1>No Matching Restaurants Found</h1>) :
+                    (filteredRestaurants?.map((restaurant) => (
+                        <Link to={"/restaurant/"+restaurant.data.id} key={restaurant.data.id}>
+                            <RestaurantCard {...restaurant.data} />
+                        </Link>
                 )))}
             </div>
         </>
