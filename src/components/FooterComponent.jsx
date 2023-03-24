@@ -1,14 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 const FooterComponent = () => {
-    console.log("Outside is called");
+    // console.log("Outside is called");
     return (
         
         <div>
-            {console.log("Inside is called")}
+            {/* {console.log("Inside is called")} */}
                 <h4>Footer</h4>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     console.log("Hey");
-                }}>Hey!!</button>
+                }}>Hey!!</button> */}
         </div>
     )
         
