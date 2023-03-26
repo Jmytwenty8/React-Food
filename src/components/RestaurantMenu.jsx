@@ -19,20 +19,23 @@ const RestaurantMenu = () => {
         getRestaurantMenu();
     }, []);
     
-    const { cloudinaryImageId, name, avgRatingString, costForTwoMessage } = restaurant?.cards[0]?.card?.card?.info || {};
+    const { cloudinaryImageId, name, avgRatingString, costForTwoMessage, cuisines } = restaurant?.cards[0]?.card?.card?.info || {};
 
     return (!restaurant) ? <Shimmer/> : (
-        <div className="menu">
-            <div>
+        <div className="flex justify-evenly items-start m-5">
+            <div className="shadow-lg mx-5 bg-blue-100">
                 {/* <h1>Restaurant id : {id}</h1> */}
-                <img src={IMG_CDN + cloudinaryImageId} />
-                <h1>{name}</h1>
-                <h2>Rating : {avgRatingString}</h2>
-                <h3>Cost: {costForTwoMessage}</h3>
+                <img className="p-5" src={IMG_CDN + cloudinaryImageId} />
+                <h1 className="px-5 font-bold mx-2">{name}</h1>
+                <h2 className="px-5 mx-2">{cuisines.join(', ') }</h2>
+                <h2 className="px-5 mx-2">Rating : {avgRatingString}
+                    <span className="text-xl m-1 text-yellow-400">&#9733;</span>
+                </h2>
+                <h3 className="px-5 mx-2 py-2">Cost: {costForTwoMessage}</h3>
             </div>
             <div>
-                <h1>Menu</h1>
-                <ul>
+                <h1 className="text-xl font-bold mb-4">Menu</h1>
+                <ul className="list-disc ml-4 text-lg text-gray-700">
                     {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((res) => {
                         const data = res?.card?.card;
                         if (data['@type']?.match("type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")) {
