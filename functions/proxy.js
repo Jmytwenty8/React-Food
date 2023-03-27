@@ -1,4 +1,4 @@
-import fetch from 'fetch';
+import fetch from 'node-fetch';
 
 exports.handler = async (event, context) => {
   const { url } = event.queryStringParameters;
