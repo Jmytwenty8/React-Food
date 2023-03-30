@@ -23,7 +23,7 @@ const RestaurantMenu = () => {
 
     return (!restaurant) ? <Shimmer/> : (
         <div className="flex justify-evenly items-start m-5">
-            <div className="shadow-lg mx-5 bg-blue-100">
+            <div className="shadow-lg mx-5 bg-blue-100 rounded-lg">
                 {/* <h1>Restaurant id : {id}</h1> */}
                 <img className="p-5" src={IMG_CDN + cloudinaryImageId} />
                 <h1 className="px-5 font-bold mx-2">{name}</h1>
