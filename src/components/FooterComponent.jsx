@@ -1,20 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
 const FooterComponent = () => {
-    // console.log("Outside is called");
-    return (
-        
-        <div>
-            {/* {console.log("Inside is called")} */}
-                <h4>Footer</h4>
-                {/* <button onClick={() => {
+  // console.log("Outside is called");
+  return (
+    <div>
+      {/* {console.log("Inside is called")} */}
+      <h4>Footer</h4>
+      {/* <button onClick={() => {
                     console.log("Hey");
                 }}>Hey!!</button> */}
-        </div>
-    )
-        
-
-}
-    
+    </div>
+  );
+};
 
 export default FooterComponent;
 
@@ -30,7 +26,7 @@ export default FooterComponent;
 //     render() {
 //         const { count } = this.state;
 //         return (
-//             <div> 
+//             <div>
 //                 <h4>Footer</h4>
 //                 <h3>Count : {count}</h3>
 //                 <button onClick={() => {
